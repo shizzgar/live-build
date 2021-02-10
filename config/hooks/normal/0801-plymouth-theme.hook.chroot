@@ -1,0 +1,9 @@
+set -e
+
+echo "PLYMOUTH, BITHC, INSTALLING THEME!"
+
+if [ -e /usr/sbin/plymouth-set-default-theme ] && [ -e /usr/share/plymouth/themes/Symmetrical-Octasoft-Ani-01-Dark-Gray ]
+then
+	plymouth-set-default-theme Symmetrical-Octasoft-Ani-01-Dark-Gray
+fi
+

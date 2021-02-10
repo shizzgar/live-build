@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+# Disable kexec-tools
+
+if [ -e /etc/X11 ]
+then
+	rm -rf /etc/X11
+	rm -rf /etc/xdg
+fi
+

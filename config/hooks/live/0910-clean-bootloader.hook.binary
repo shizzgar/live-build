@@ -1,0 +1,8 @@
+ls ./binary/boot
+
+echo "remove binary/boot/grub/i386-efi"
+if [ -d "binary/boot/grub/i386-efi" ]; then
+	rm -rf binary/boot/grub/i386-efi
+    rm binary/EFI/boot/bootia32.efi
+fi
+echo "delete binary/boot/grub/i386-efi"

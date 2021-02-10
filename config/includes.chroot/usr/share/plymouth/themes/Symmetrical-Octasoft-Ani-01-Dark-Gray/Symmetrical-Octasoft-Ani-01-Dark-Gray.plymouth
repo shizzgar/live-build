@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Symmetrical Octasoft Ani-01 Dark Gray theme
+Description=Symmetrical Octasoft Ani-01 Dark Gray plymouth theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/Symmetrical-Octasoft-Ani-01-Dark-Gray
+ScriptFile=/usr/share/plymouth/themes/Symmetrical-Octasoft-Ani-01-Dark-Gray/mdv.script
