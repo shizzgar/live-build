@@ -2,22 +2,6 @@
 
 set -e
 
-# lb config noauto \
-#      --architectures amd64 \
-#      --mirror-bootstrap http://ftp.uk.debian.org/debian/ \
-#      --mirror-chroot http://ftp.uk.debian.org/debian/ \
-#      --mirror-binary http://ftp.uk.debian.org/debian/ \
-#      --mirror-chroot-security http://security.debian.org/ \
-#      --archive-areas "main contrib non-free" \
-#      --apt-recommends disabled \
-#      --apt aptitude \
-#      -d buster \
-#      --apt-recommends false \
-#      --memtest none \
-#      --debian-installer false \
-#      --debian-installer-gui false \
-#      "${@}"
-
 lb config noauto \
     --mode debian \
     --apt aptitude \
@@ -27,7 +11,7 @@ lb config noauto \
     -d buster \
     --system live \
     --backports true \
-    --bootappend-live "boot=live components splash hostname=station" \
+    --bootappend-live "boot=live noautologin nocomponents=user-setup,gdm3,kdm,lightdm,lxdm,nodm,slim,xinit,kaboom,xserver-xorg,xfce4-panel quite splash" \
     --binary-images iso \
     --bootloaders grub-efi \
     --memtest none \
@@ -36,7 +20,7 @@ lb config noauto \
     --debian-installer-gui false \
     --image-name "maxeff-live" \
     --iso-application "maxeff" \
-    --iso-preparer "0-5" \
+    --iso-preparer "0.5" \
     --iso-publisher "Deny" \
     --mirror-bootstrap http://deb.debian.org/debian/ \
     --mirror-binary http://deb.debian.org/debian/ \

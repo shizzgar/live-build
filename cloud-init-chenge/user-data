@@ -1,0 +1,13 @@
+#cloud-config
+
+hostname: workstation
+users:
+- name: max
+  gecos: Default user
+  groups: [adm, cdrom, dip, plugdev, lxd, sudo]
+  lock-passwd: false
+  plain_text_passwd: max
+  shell: /bin/bash
+
+bootcmd:
+  - [ sed, -i, "s/debian/workstation/", /etc/hosts ]
