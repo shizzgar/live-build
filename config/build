@@ -7,4 +7,4 @@ Mirror-Bootstrap: http://deb.debian.org/debian/
 [FIXME]
 Configuration-Version: 1:20190311
 Name: maxeff-live
-Type: iso
+Type: iso-hybrid

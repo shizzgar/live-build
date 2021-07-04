@@ -1,0 +1,16 @@
+[Unit]
+Description=Simple interactive dialog window
+After=network-online.target plymouthd.target
+Wanted=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -i '/root/starty.sh'
+StandardInput=console
+StandardOutput=journal+console
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+
+[Install]
+WantedBy=final.target

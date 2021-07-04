@@ -1,0 +1,6 @@
+[Match]
+MACAddress=c8:cb:b8:32:fe:5a
+[Address]
+Address=192.168.1.115
+[Route]
+Gateway=192.168.1.1

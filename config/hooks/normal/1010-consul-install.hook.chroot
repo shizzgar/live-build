@@ -1,0 +1,72 @@
+set -e
+
+
+echo "INSTALLING CONSUL, BITCH!"
+echo "INSTALLING CONSUL, BITCH!"
+echo "INSTALLING CONSUL, BITCH!"
+
+export CONSUL_VERSION="1.10.0"
+curl --silent --remote-name https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
+unzip consul_${CONSUL_VERSION}_linux_amd64.zip
+sudo mv consul /usr/bin/
+consul version
+sudo mkdir --parents /opt/consul
+sudo mkdir --parents /etc/consul.d
+sudo chmod 700 /etc/consul.d
+
+sudo touch /etc/consul.d/consul.hcl
+
+echo 'datacenter = "default"
+data_dir = "/opt/nomad/"  
+server = true
+ui = true
+bind_addr = "0.0.0.0"
+client_addr = "0.0.0.0"
+#advertise_addr = "127.0.0.1"
+bootstrap_expect = 1
+log_level = "DEBUG"
+connect { 
+    enabled = true 
+}
+ports {
+  grpc = 8502
+}
+' >> /etc/consul.d/consul.hcl
+
+
+sudo touch /etc/sudoers.d/consul
+echo "max ALL = (root) NOPASSWD: /usr/bin/consul" >> /etc/sudoers.d/consul
+
+echo "CONSUL INSTALLED, BITCH!"
+echo "CONSUL INSTALLED, BITCH!"
+echo "CONSUL INSTALLED, BITCH!"
+
+
+curl -L -o cni-plugins.tgz "https://github.com/containernetworking/plugins/releases/download/v0.9.0/cni-plugins-linux-$( [ $(uname -m) = aarch64 ] && echo arm64 || echo amd64)"-v0.9.0.tgz
+sudo mkdir -p /opt/cni/bin
+sudo tar -C /opt/cni/bin -xzf cni-plugins.tgz
+
+
+
+
+# export CONSUL_VERSION="1.8.0"
+# export CONSUL_URL="https://releases.hashicorp.com/consul"
+# curl --silent --remote-name \
+#   ${CONSUL_URL}/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
+# curl --silent --remote-name \
+#   ${CONSUL_URL}/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_SHA256SUMS
+# curl --silent --remote-name \
+#   ${CONSUL_URL}/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_SHA256SUMS.sig
+# unzip consul_${CONSUL_VERSION}_linux_amd64.zip
+# sudo chown root:root consul
+# sudo mv consul /usr/bin/
+# consul --version
+# sudo useradd --system --home /etc/consul.d --shell /bin/false consul
+# sudo mkdir --parents /opt/consul
+# sudo chown --recursive consul:consul /opt/consul
+# sudo touch /etc/consul.d/consul.hcl
+# sudo chown --recursive consul:consul /etc/consul.d
+# sudo chmod 640 /etc/consul.d/consul.hcl
+
+# echo 'datacenter = "default"
+# data_dir = "/opt/consul"' >> 

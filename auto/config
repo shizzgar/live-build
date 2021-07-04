@@ -2,6 +2,9 @@
 
 set -e
 
+    # 
+
+
 lb config noauto \
     --mode debian \
     --apt aptitude \
@@ -11,8 +14,7 @@ lb config noauto \
     -d buster \
     --system live \
     --backports true \
-    --bootappend-live "boot=live noautologin nocomponents=user-setup,gdm3,kdm,lightdm,lxdm,nodm,slim,xinit,kaboom,xserver-xorg,xfce4-panel quite splash" \
-    --binary-images iso \
+    --bootappend-live "boot=live quite splash noautologin ip=frommedia nocomponents=user-setup,gdm3,kdm,lightdm,lxdm,nodm,slim,xinit,kaboom,xserver-xorg,xfce4-panel" \
     --bootloaders grub-efi \
     --memtest none \
     --debconf-frontend noninteractive \
@@ -22,6 +24,7 @@ lb config noauto \
     --iso-application "maxeff" \
     --iso-preparer "0.5" \
     --iso-publisher "Deny" \
+    --binary-images iso-hybrid \
     --mirror-bootstrap http://deb.debian.org/debian/ \
     --mirror-binary http://deb.debian.org/debian/ \
     "${@}"

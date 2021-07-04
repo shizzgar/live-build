@@ -1,0 +1,62 @@
+set -e
+#ln -sf /usr/lib/systemd/system/starty.service /usr/lib/systemd/system/default.target.wants/starty.service
+
+echo "INSTALLING NOMAD, BITCH!"
+echo "INSTALLING NOMAD, BITCH!"
+echo "INSTALLING NOMAD, BITCH!"
+
+export NOMAD_VERSION="1.1.0"
+curl --silent --remote-name https://releases.hashicorp.com/nomad/${NOMAD_VERSION}/nomad_${NOMAD_VERSION}_linux_amd64.zip
+unzip nomad_${NOMAD_VERSION}_linux_amd64.zip
+sudo mv nomad /usr/local/bin/
+nomad version
+sudo mkdir --parents /opt/nomad
+sudo mkdir --parents /etc/nomad.d
+sudo chmod 700 /etc/nomad.d
+
+mkdir -p /etc/nomad.d/client
+mkdir -p /etc/nomad.d/server
+sudo touch /etc/nomad.d/nomad.hcl
+
+echo 'datacenter = "default"
+bind_addr = "0.0.0.0"
+data_dir = "/opt/nomad"
+consul {
+  address             = "127.0.0.1:8500"
+  server_service_name = "nomad"
+  client_service_name = "nomad-client"
+  auto_advertise      = true
+  server_auto_join    = true
+  client_auto_join    = true
+}
+plugin "raw_exec" {
+  config {
+    enabled = true
+  }
+}' >> /etc/nomad.d/nomad.hcl
+
+
+sudo touch /etc/nomad.d/client/client.hcl
+sudo touch /etc/nomad.d/server/server.hcl
+
+
+echo 'client {
+  enabled = true
+}' >> /etc/nomad.d/client/client.hcl
+
+
+echo 'server {
+  enabled = true
+  bootstrap_expect = 1
+}
+client {
+  enabled = true
+}' >> /etc/nomad.d/server/server.hcl
+
+
+sudo touch /etc/sudoers.d/nomad
+echo "max ALL = (root) NOPASSWD: /usr/local/bin/nomad" >> /etc/sudoers.d/nomad
+
+echo "NOMAD INSTALLED , BITCH!"
+echo "NOMAD INSTALLED , BITCH!"
+echo "NOMAD INSTALLED , BITCH!"

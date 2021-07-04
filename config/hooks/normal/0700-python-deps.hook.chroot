@@ -1,0 +1,4 @@
+set -e
+
+pip3 install sh
+pip3 install "dask[complete]"

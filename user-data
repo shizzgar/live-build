@@ -1,0 +1,15 @@
+#cloud-config
+hostname: sun
+manage_etc_hosts: true
+users:
+- name: max
+  gecos: Default user
+  groups: [adm, cdrom, dip, plugdev, lxd, sudo]
+  lock-passwd: false
+  plain_text_passwd: max
+  shell: /bin/bash
+  # ssh-authorized-keys:
+  #   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDsO6O4057CXp+W9MApurbX/rJ5fxBqkp2L+Kx4/YX4MPDc6QFEZbemLtkqPxRLbs16zJvncAVyg/ZxBobZpjKYcS9Yb9aFHpdZIgXVcQDo82TdppP7NKE9OnzAK7bpmQJnDxu1lJ+bXyHa8IAupZ+U/jK78Js1G4etfNDd4jEQ0wqvWheCTNNfbwKR1WRAV9+QFW4thxJ/a+kA6UmVCPEFqhy0uHZw6f/ojXEK+tOww/skQTwlKtqovX81qXiE1bgwFuNsjLmSSn0EThqZxsSOm48C2kSGW+sO06whVm/XpQ0VTUDE1BG303XQbcWpEZmbwIytbowe7Z2k/neuFpX9 brennan@Brennans-MacBook-Pro.local
+chpasswd: { expire: false }
+ssh_pwauth: true
+

@@ -1,0 +1,4 @@
+set -e
+
+sudo chmod 777 /root/starty.py
+sudo chmod +x /root/starty.py

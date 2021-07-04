@@ -1,0 +1,27 @@
+mkdir -p ./seed/network/
+cp /root/my_live_build/user-data ./seed/
+cp /root/my_live_build/meta-data ./seed/
+cp /root/my_live_build/network/000-master.network ./seed/network/ 
+cp /root/my_live_build/network/000-node.network ./seed/network/ 
+cp /root/my_live_build/network/001-node.network ./seed/network/
+cp /root/my_live_build/network/002-node.network ./seed/network/
+cp /root/my_live_build/network/003-node.network ./seed/network/
+cp /root/my_live_build/network/004-node.network ./seed/network/
+cp /root/my_live_build/network/005-node.network ./seed/network/
+cp /root/my_live_build/network/006-node.network ./seed/network/
+cp /root/my_live_build/network/007-node.network ./seed/network/
+cp /root/my_live_build/network/008-node.network ./seed/network/
+cp /root/my_live_build/network/009-node.network ./seed/network/
+cp /root/my_live_build/network/010-node.network ./seed/network/
+
+
+
+
+
+
+
+
+
+
+
+

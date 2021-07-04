@@ -1,0 +1,27 @@
+set -e
+
+ln -s /run/live/medium/seed/network/000-master.network /etc/systemd/network/000-master.network
+ln -s /run/live/medium/seed/network/000-node.network /etc/systemd/network/000-node.network
+ln -s /run/live/medium/seed/network/001-node.network /etc/systemd/network/001-node.network
+ln -s /run/live/medium/seed/network/002-node.network /etc/systemd/network/002-node.network
+ln -s /run/live/medium/seed/network/003-node.network /etc/systemd/network/003-node.network
+ln -s /run/live/medium/seed/network/004-node.network /etc/systemd/network/004-node.network
+ln -s /run/live/medium/seed/network/005-node.network /etc/systemd/network/005-node.network
+ln -s /run/live/medium/seed/network/006-node.network /etc/systemd/network/006-node.network
+ln -s /run/live/medium/seed/network/007-node.network /etc/systemd/network/007-node.network
+ln -s /run/live/medium/seed/network/008-node.network /etc/systemd/network/008-node.network
+ln -s /run/live/medium/seed/network/009-node.network /etc/systemd/network/009-node.network
+ln -s /run/live/medium/seed/network/010-node.network /etc/systemd/network/010-node.network
+ln -s /run/live/medium/seed/network/011-node.network /etc/systemd/network/011-node.network
+ln -s /run/live/medium/seed/network/012-node.network /etc/systemd/network/012-node.network
+ln -s /run/live/medium/seed/network/013-node.network /etc/systemd/network/013-node.network
+ln -s /run/live/medium/seed/network/014-node.network /etc/systemd/network/014-node.network
+ln -s /run/live/medium/seed/network/015-node.network /etc/systemd/network/015-node.network
+ln -s /run/live/medium/seed/network/016-node.network /etc/systemd/network/016-node.network
+ln -s /run/live/medium/seed/network/017-node.network /etc/systemd/network/017-node.network
+ln -s /run/live/medium/seed/network/018-node.network /etc/systemd/network/018-node.network
+ln -s /run/live/medium/seed/network/019-node.network /etc/systemd/network/019-node.network
+ln -s /run/live/medium/seed/network/020-node.network /etc/systemd/network/020-node.network
+sudo ln -sf /lib/systemd/system/systemd-resolved.service /etc/systemd/system/dbus-org.freedesktop.resolve1.service
+systemctl enable systemd-resolved
+systemctl enable systemd-networkd

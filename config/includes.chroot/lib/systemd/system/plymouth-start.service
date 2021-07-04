@@ -1,0 +1,14 @@
+[Unit]
+Description=Show Plymouth Boot Screen
+DefaultDependencies=no
+Wants=systemd-ask-password-plymouth.path
+ConditionKernelCommandLine=!plymouth.enable=0
+ConditionKernelCommandLine=!nosplash
+ConditionVirtualization=!container
+
+[Service]
+ExecStart=/sbin/plymouthd --mode=boot --pid-file=/run/plymouth/pid --attach-to-session
+ExecStartPost=-/bin/plymouth show-splash
+Type=forking
+KillMode=none
+SendSIGKILL=no

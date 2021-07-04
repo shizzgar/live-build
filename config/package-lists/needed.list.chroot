@@ -1,9 +1,13 @@
 sudo
-user-setup
 firmware-linux
 cloud-init
 neofetch
 mc
+ssh
+gnupg
+curl
+python3-pip
+#ifrename
 #grub2
 #grub-efi-amd64
 #eject
