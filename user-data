@@ -2,7 +2,7 @@
 hostname: sun
 manage_etc_hosts: true
 users:
-- name: max
+- name: fuck
   gecos: Default user
   groups: [adm, cdrom, dip, plugdev, lxd, sudo]
   lock-passwd: false
